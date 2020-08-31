@@ -27,6 +27,5 @@ deck = new Deck
 deck.populate()
 deck.shuffle()
 console.log(deck.cards)
-console.log(deck.draw())
 
 
