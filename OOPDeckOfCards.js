@@ -29,4 +29,4 @@ deck.shuffle()
 console.log(deck.cards)
 console.log(deck.draw())
 console.log(deck.draw())
-console.log(deck.draw())
+
