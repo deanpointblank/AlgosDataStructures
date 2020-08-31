@@ -23,8 +23,7 @@ class Deck{
 
 }
 
-deck = new Deck
-deck.populate()
+
 console.log(deck.cards)
 
 
