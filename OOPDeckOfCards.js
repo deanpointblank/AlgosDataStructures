@@ -25,7 +25,6 @@ class Deck{
 
 deck = new Deck
 deck.populate()
-deck.shuffle()
 console.log(deck.cards)
 
 
