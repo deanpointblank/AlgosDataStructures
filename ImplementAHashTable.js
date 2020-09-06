@@ -5,7 +5,7 @@ class HashTable {
 
     _hash(key){
         let hash = 0;
-        for (let i = 0; i < key.lenght; i++){
+        for (let i = 0; i < key.length; i++){
             hash = (hash + key.charCodeAt(i) * i) % this.data.length
         }
         return hash;
@@ -13,12 +13,24 @@ class HashTable {
 
     set(item, value){
         let place = this._hash(item)
-        this.data[place] = value
+        if(!this.data[place]){
+            this.data[place] = [];
+        }
+        this.data[place].push([item, value])
+        return this.data
     }
 
     get(item){
         let place = this._hash(item)
-        return this.data[place]
+        const currentBucket = this.data[place];
+        if(currentBucket){
+            for(let i = 0; i < currentBucket.length; i++){
+                if(currentBucket[i][0] === item){
+                    return currentBucket[i][1]
+                }
+            }
+        }
+        return undefined
     }
 }
 
