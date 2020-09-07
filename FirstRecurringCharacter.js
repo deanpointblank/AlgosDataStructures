@@ -47,4 +47,24 @@ function firstRecurringCharacter(array){
     }
 }
 
-console.log(firstRecurringCharacter([2,5,5,2,3,5,1,2,4]))
+
+// Way more elegant solution
+function firstRecurringCharacter2(array){
+    //create hashTable to hold unique values
+    let characterHash = {}
+
+    //loop through the array
+    for(let i = 0; i < array.length; i++){
+
+        //if the value already exist, return the value
+        if(!!characterHash[array[i]]){
+            return array[i]
+        }
+        //if not place the value into the hash 
+        else {
+            characterHash[array[i]] = i
+        }
+    }
+    return undefined
+}
+console.log(firstRecurringCharacter2([2,5,5,2,3,5,1,2,4]))
