@@ -61,13 +61,33 @@ class LinkedList{
         return array
     }
 
-    insert(index, value){
-
+    insert(index, value){           //<= make this work
+        let currentNode = this.head
+        let i = 0
+        const newNode = {
+            value: value,
+            next: null
+        }
+        let nodeLink = currentNode
+        while (i !== index && currentNode !== null){
+            currentNode = currentNode.next
+            i++
+            if(i < index){
+                nodeLink = currentNode
+            }
+            if(i === index){
+                nodeLink.next = newNode
+                newNode.next = currentNode
+                currentNode = newNode
+            }
+        }
+        
+        this.length++
     }
 }
 const myLinkedList = new LinkedList(10)
 myLinkedList.append(5);
 myLinkedList.append(16);
 myLinkedList.prepend(1);
-myLinkedList.insert(2, 99);
+myLinkedList.insert(4, 99);
 console.log(myLinkedList.printList())
